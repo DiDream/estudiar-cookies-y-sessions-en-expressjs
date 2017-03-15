@@ -1,0 +1,29 @@
+{
+  "name": "estudiar-cookies-y-sessions-en-expressjs",
+  "version": "0.0.1",
+  "description": "Este proyecto es una práctica de la asignatura _Desarrollo de Sistemas Informáticos_ del grado de Ingeniería Informática de la Universidad de La Laguna, en la que crearemos un libro en Github (utilizando gh-pages) y Gitbook donde describiremos el uso de **Cookies y Sessions en ExpressJS**.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DiDream/estudiar-cookies-y-sessions-en-expressjs.git",
+    "gitbook": "https://git.gitbook.com/didream/estudiar-cookies-y-sessions-fernando-jimmy.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DiDream/estudiar-cookies-y-sessions-en-expressjs/issues"
+  },
+  "homepage": "https://github.com/DiDream/estudiar-cookies-y-sessions-en-expressjs#readme",
+  "devDependencies": {
+    "gh-pages": "^0.12.0",
+    "gitbook-cli": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.6.3"
+  }
+}
