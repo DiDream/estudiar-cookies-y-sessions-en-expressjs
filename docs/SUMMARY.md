@@ -18,3 +18,6 @@
     * [Sintaxis](npm-cookies/manejo-cookies-express.md#sintaxis)
     * [Establecer tiempo de expiración](npm-cookies/manejo-cookies-express.md#establecer-el-tiempo-de-expiración-de-una-cookie)
     * [Borrar una cookie](npm-cookies/manejo-cookies-express.md#borrar-una-cookie-existente)
+* Autenticación básica en ExpressJS
+    * [Definición](npm-cookies/sesion-basica-express.md)
+    * [Comentando el ejemplo auth-session.js](npm-cookies/sesion-basica-express.md#comentando-el-ejemplo)
