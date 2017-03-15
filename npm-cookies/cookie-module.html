@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Creando cookies · GitBook</title>
+        <title>Definición · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="seguridad.html" />
+    <link rel="next" href="cookie-module.html" />
     
-    
-    <link rel="prev" href="definicion.html" />
     
 
     </head>
@@ -116,9 +114,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="definicion.html">
+        <li class="chapter " data-level="1.2.1" data-path="../http-cookies/definicion.html">
             
-                <a href="definicion.html">
+                <a href="../http-cookies/definicion.html">
             
                     
                     Definición
@@ -129,9 +127,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="creando-cookies.html">
+        <li class="chapter " data-level="1.2.2" data-path="../http-cookies/creando-cookies.html">
             
-                <a href="creando-cookies.html">
+                <a href="../http-cookies/creando-cookies.html">
             
                     
                     Creando cookies
@@ -142,9 +140,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="seguridad.html">
+        <li class="chapter " data-level="1.2.3" data-path="../http-cookies/seguridad.html">
             
-                <a href="seguridad.html">
+                <a href="../http-cookies/seguridad.html">
             
                     
                     Seguridad
@@ -155,9 +153,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="seguimiento-privacidad.html">
+        <li class="chapter " data-level="1.2.4" data-path="../http-cookies/seguimiento-privacidad.html">
             
-                <a href="seguimiento-privacidad.html">
+                <a href="../http-cookies/seguimiento-privacidad.html">
             
                     
                     Seguimiento y privacidad
@@ -245,9 +243,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../npm-cookies/cookie-module.html">
+        <li class="chapter active" data-level="1.4.1" data-path="cookie-module.html">
             
-                <a href="../npm-cookies/cookie-module.html">
+                <a href="cookie-module.html">
             
                     
                     Definición
@@ -258,9 +256,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../npm-cookies/cookie-module.html">
+        <li class="chapter " data-level="1.4.2" data-path="cookie-module.html">
             
-                <a href="../npm-cookies/cookie-module.html#métodos">
+                <a href="cookie-module.html#métodos">
             
                     
                     Métodos
@@ -290,9 +288,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../npm-cookies/manejo-cookies-express.html">
+        <li class="chapter " data-level="1.5.1" data-path="manejo-cookies-express.html">
             
-                <a href="../npm-cookies/manejo-cookies-express.html">
+                <a href="manejo-cookies-express.html">
             
                     
                     Definición
@@ -303,9 +301,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../npm-cookies/manejo-cookies-express.html">
+        <li class="chapter " data-level="1.5.2" data-path="manejo-cookies-express.html">
             
-                <a href="../npm-cookies/manejo-cookies-express.html#sintaxis">
+                <a href="manejo-cookies-express.html#sintaxis">
             
                     
                     Sintaxis
@@ -316,9 +314,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../npm-cookies/manejo-cookies-express.html">
+        <li class="chapter " data-level="1.5.3" data-path="manejo-cookies-express.html">
             
-                <a href="../npm-cookies/manejo-cookies-express.html#establecer-el-tiempo-de-expiración-de-una-cookie">
+                <a href="manejo-cookies-express.html#establecer-el-tiempo-de-expiración-de-una-cookie">
             
                     
                     Establecer tiempo de expiración
@@ -329,9 +327,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../npm-cookies/manejo-cookies-express.html">
+        <li class="chapter " data-level="1.5.4" data-path="manejo-cookies-express.html">
             
-                <a href="../npm-cookies/manejo-cookies-express.html#borrar-una-cookie-existente">
+                <a href="manejo-cookies-express.html#borrar-una-cookie-existente">
             
                     
                     Borrar una cookie
@@ -377,7 +375,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Creando cookies</a>
+        <a href=".." >Definición</a>
     </h1>
 </div>
 
@@ -392,45 +390,43 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="creando-cookies">Creando cookies</h1>
-<p>Desde el servidor, las cookies son creadas mediante la cabecera de respuesta <code>HTTP Set-Cookie</code>:</p>
-<pre><code class="lang-http"><span class="hljs-attribute">Set-Cookie</span>: &lt;cookie-name&gt;=&lt;cookie-value&gt;
+                                <h1 id="m&#xF3;dulo-de-npm-cookie">M&#xF3;dulo de npm <em>cookie</em></h1>
+<p>Para instalarlo, ejecutaremos:</p>
+<pre><code class="lang-bash">$ npm install cookie
 </code></pre>
-<p>Una respuesta HTTP puede contener m&#xFA;ltiples cabeceras <code>Set-Cookie</code>, una por cada cookie.</p>
-<pre><code class="lang-http">HTTP/1.0 <span class="hljs-number">200</span> OK
-<span class="hljs-attribute">Content-type</span>: text/html
-<span class="hljs-attribute">Set-Cookie</span>: colorPreference=blue
-<span class="hljs-attribute">Set-Cookie</span>: id=48745487
+<p>Para utilizarlo en nuestros programas de Javascript, escribiremos al inicio de todos ellos:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> cookie = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie&apos;</span>);
 </code></pre>
-<p>Una vez que la cookie ha sido creada, cada nueva solicitud que realice el usuario enviar&#xE1; la cookie en la cabecera de solicitud <code>HTTP Cookie</code>. En esta cabecera s&#xF3;lo se env&#xED;an las cookies que sean v&#xE1;lidas seg&#xFA;n los par&#xE1;metros establecidos al crearla (expires, path ...) y s&#xF3;lo se env&#xED;an el par <code>&lt;nombre&gt;=&lt;valor&gt;</code>:</p>
-<pre><code class="lang-http"><span class="hljs-attribute">Cookie</span>: &lt;nombre&gt;=&lt;valor&gt;
+<h2 id="m&#xE9;todos">M&#xE9;todos</h2>
+<h3 id="cookieparsestroptions">cookie.parse(str,options)</h3>
+<p>Parsea el encabezado de una cookie, devolviendo un objeto con todos
+los pares nombre-valor que coincidan con nuestra b&#xFA;squeda. Por ejemplo:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> cookies = cookie.parse(<span class="hljs-string">&apos;foo=bar; equation=E%3Dmc%5E2&apos;</span>);
+<span class="hljs-comment">// { foo: &apos;bar&apos;, equation: &apos;E=mc^2&apos; }</span>
 </code></pre>
-<p>Cu&#xE1;ndo se env&#xED;an varias cookies, se env&#xED;an todas separadas por <strong>;</strong> en una &#xFA;nica cabecera <code>Cookie</code>.</p>
-<pre><code class="lang-http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/ejemplo.html</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: www.mysite.com
-<span class="hljs-attribute">Cookie</span>: colorPreference=blue; sessionToken=48745487
+<h3 id="cookieserializename-value-options">cookie.serialize(name, value, options)</h3>
+<p>Crea una cadena de texto para la cabecera de una cookie a partir de un par nombre-valor. El argumento <em>name</em> es el nombre de la cookie, el <em>value</em> es el valor de &#xE9;sta, y <em>options</em> son distintas opciones que se pueden a&#xF1;adir.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> setCookie = cookie.serialize(<span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>);
+<span class="hljs-comment">// foo=bar</span>
 </code></pre>
-<h4 id="cookies-de-sesi&#xF3;n">Cookies de sesi&#xF3;n</h4>
-<p>Los ejemplos anteriores son cookies de sesi&#xF3;n. No se especifica el campo <code>Expires</code> ni <code>Max-Age</code> y se borran cuando el usuario cierra el navegador Web.</p>
-<h4 id="cookies-persistentes">Cookies persistentes</h4>
-<p>Se borran en la fecha establecida en el campo <code>Expires</code> o pasado el tiempo indicado en el campo <code>Max-Age</code>.</p>
-<pre><code class="lang-http"><span class="hljs-attribute">Set-Cookie</span>: sessionToken=48745487; Expires=Thu, 01 Jan 2031 19:22:10 GMT
-</code></pre>
-<h4 id="alcance-de-las-cookies">Alcance de las cookies</h4>
-<p>El campo <code>Domain</code> y <code>Path</code> define el alcance de la cookie, que es el conjunto de direcciones URL a la cual se enviar&#xE1; la cookie.</p>
-<p><code>Domain</code> especifica los hosts a los que se enviar&#xE1; la cookie. Si no se especifica, por defecto, las cookies s&#xF3;lo ser&#xE1;n v&#xE1;lidas para el subdominio actual.
-Pero si el atributo domain no est&#xE1; vac&#xED;o, podemos especificar otros subdominios ya sea de forma espec&#xED;fica:</p>
-<pre><code class="lang-http">Domain=sub.ejemplo.com
-</code></pre>
-<p>o para todos los subdominios:</p>
-<pre><code class="lang-http">Domain=mozilla.org
-</code></pre>
-<p><code>Path</code> Establece la ruta para la cu&#xE1;l la cookie es v&#xE1;lida. Por defecto, si no se especifica ningun valor, una cookie solo es valida para el path actual. Por el contrario, si se especificase la cookie seria valida para todas las rutas a partir del path especificado.</p>
-<p>Por ejemplo si <code>Path=/docs</code>, ser&#xE1;n v&#xE1;lidos:</p>
+<p>Las opciones que se pueden a&#xF1;adir son:</p>
 <ul>
-<li><code>/docs</code></li>
-<li><code>/docs/Web/</code></li>
-<li><code>/docs/Web/HTTP</code></li>
+<li><p>domain: especifica un dominio para la cookie. Si no se pone ninguno, se coge por defecto el actual.</p>
+</li>
+<li><p>encode: se especifica una funci&#xF3;n que se usar&#xE1; para codificar el valor de una cookie.</p>
+</li>
+<li><p>expires: se especifica la fecha de expiraci&#xF3;n de la cookie. Si no se especifica ninguna, el navegador la destruir&#xE1; al salir.</p>
+</li>
+<li><p>httpOnly: atributo que se usa para la fiabilidad del sitio. Cuando el sitio sea fiable, el valor estar&#xE1; puesto a &quot;verdadero&quot;, mientras que si no lo es, estar&#xE1; puesto a &quot;falso&quot;. Por defecto, el valor de esta opci&#xF3;n es &quot;falso&quot;.</p>
+</li>
+<li><p>maxAge: se especifica el n&#xFA;mero, en segundos, del valor del atributo &quot;MaxAge&quot;. Este atributo es similar al de &quot;expires&quot;, solo que si ambos est&#xE1;n establecidos, entonces este tiene prioridad.</p>
+</li>
+<li><p>path: especifica el valor para el atributo &quot;path&quot;. Por defecto, el path ser&#xE1; el &quot;path por defecto&quot;.</p>
+</li>
+<li><p>sameSite: booleano o string que especifica el valor del atributo Same-Site de la cookie.</p>
+</li>
+<li><p>secure: booleano que indica si un sitio es seguro mediante el valor <em>true</em>, o si no lo es mediante el valor <em>false</em>, que a su vez es el valor por defecto si no se especifica nada.</p>
+</li>
 </ul>
 
                                 
@@ -459,12 +455,8 @@ Pero si el atributo domain no est&#xE1; vac&#xED;o, podemos especificar otros su
 
             
                 
-                <a href="definicion.html" class="navigation navigation-prev " aria-label="Previous page: Definición">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="seguridad.html" class="navigation navigation-next " aria-label="Next page: Seguridad">
+                <a href="cookie-module.html#métodos" class="navigation navigation-next navigation-unique" aria-label="Next page: Métodos">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -475,7 +467,7 @@ Pero si el atributo domain no est&#xE1; vac&#xED;o, podemos especificar otros su
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Creando cookies","level":"1.2.2","depth":2,"next":{"title":"Seguridad","level":"1.2.3","depth":2,"path":"http-cookies/seguridad.md","ref":"http-cookies/seguridad.md","articles":[]},"previous":{"title":"Definición","level":"1.2.1","depth":2,"path":"http-cookies/definicion.md","ref":"http-cookies/definicion.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"http-cookies/creando-cookies.md","mtime":"2017-03-15T18:25:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T19:56:55.835Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Definición","level":"1.4.1","depth":2,"next":{"title":"Métodos","level":"1.4.2","depth":2,"anchor":"#métodos","path":"npm-cookies/cookie-module.md","ref":"npm-cookies/cookie-module.md#métodos","articles":[]},"previous":{"title":"Módulo","level":"1.4","depth":1,"ref":"","articles":[{"title":"Definición","level":"1.4.1","depth":2,"path":"npm-cookies/cookie-module.md","ref":"npm-cookies/cookie-module.md","articles":[]},{"title":"Métodos","level":"1.4.2","depth":2,"anchor":"#métodos","path":"npm-cookies/cookie-module.md","ref":"npm-cookies/cookie-module.md#métodos","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"npm-cookies/cookie-module.md","mtime":"2017-03-15T19:24:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T19:56:55.835Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
