@@ -10,10 +10,10 @@
     * [Definición](cadena-consulta/definicion.md)
     * [Estructura](cadena-consulta/estructura.md)
     * [Codificación URL](cadena-consulta/codificacion-url.md)
-* Módulo *cookie*
+* Módulo cookie
     * [Definición](npm-cookies/cookie-module.md)
     * [Métodos](npm-cookies/cookie-module.md#métodos)
-* Módulo *cookie-parser*
+* Módulo cookie-parser
     * [Definición](npm-cookies/manejo-cookies-express.md)
     * [Sintaxis](npm-cookies/manejo-cookies-express.md#sintaxis)
     * [Establecer tiempo de expiración](npm-cookies/manejo-cookies-express.md#establecer-el-tiempo-de-expiración-de-una-cookie)
