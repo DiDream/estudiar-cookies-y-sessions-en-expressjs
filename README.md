@@ -7,3 +7,5 @@ Este proyecto es una práctica de la asignatura _Desarrollo de Sistemas Informá
 [Fernando Nantes-Machado Toledo](https://alu100897975.github.io)
 
 ### Enlaces de interés
+[Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicalearningcookies.html)
+[Campus virtual de la asignatura](https://campusvirtual.ull.es/1617/course/view.php?id=1136)
