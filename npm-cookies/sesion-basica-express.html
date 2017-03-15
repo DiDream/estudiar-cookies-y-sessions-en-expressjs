@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="manejo-cookies-express.html" />
+    <link rel="next" href="sesion-basica-express.html" />
     
     
 
@@ -288,7 +288,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.5.1" data-path="manejo-cookies-express.html">
+        <li class="chapter " data-level="1.5.1" data-path="manejo-cookies-express.html">
             
                 <a href="manejo-cookies-express.html">
             
@@ -359,7 +359,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="sesion-basica-express.html">
+        <li class="chapter active" data-level="1.6.1" data-path="sesion-basica-express.html">
             
                 <a href="sesion-basica-express.html">
             
@@ -435,51 +435,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="manejo-de-cookies-en-expressjs">Manejo de cookies en ExpressJS</h1>
-<p>Para manejar las cookies en Express, podemos usar otro m&#xF3;dulo, aparte del que hemos hablado anteriormente, llamado <em>cookie-parser</em>. Para ello, primero hemos de instalarlo en nuestra aplicaci&#xF3;n:</p>
-<pre><code class="lang-bash">$ npm install --save cookie-parser
+                                <h1 id="autenticaci&#xF3;n-de-sesi&#xF3;n-b&#xE1;sica-en-expressjs">Autenticaci&#xF3;n de sesi&#xF3;n b&#xE1;sica en ExpressJS</h1>
+<p>La <strong>autenticaci&#xF3;n</strong> es el proceso de verificar que un usuario es en realidad quien dice ser. Por otro lado, la <strong>autorizaci&#xF3;n</strong> es el proceso de determinar si un usuario tiene acceso a un recurso concreto que haya solicitado.</p>
+<p>Veremos un ejemplo de autenticaci&#xF3;n b&#xE1;sica en node.js (ejemplo que tambi&#xE9;n estar&#xE1; en la carpeta <code>/src</code> de esta pr&#xE1;ctica.) Hay un middleware de enpoint de login, otro de logout, y otro que se ejecutar&#xE1; mediante el m&#xE9;todo POST de http, pero s&#xF3;lo si estamos autenticados, y nuestra identidad ser&#xE1; verificada y guardada en sesi&#xF3;n. Cuando lleguemos al middleware endpoint de <code>/logout</code>, entonces nuestra sesi&#xF3;n ser&#xE1; destruida y el servidor olvidar&#xE1; nuestra identidad, por lo que tendremos que volver a autenticarnos.</p>
+<p><a href="../../src/auth-session.js">Enlace al archivo auth-session.js</a></p>
+<h2 id="comentando-el-ejemplo">Comentando el ejemplo</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>),
+    app = express(),
+    session = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express-session&apos;</span>);
+app.use(session({
+    secret: <span class="hljs-string">&apos;2C44-4D44-WppQ38S&apos;</span>,
+    resave: <span class="hljs-literal">true</span>,
+    saveUninitialized: <span class="hljs-literal">true</span>
+}));
 </code></pre>
-<p>Tras esto, si queremos utilizarlo en nuestra aplicaci&#xF3;n, tendremos que incluirlo:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
-<span class="hljs-keyword">var</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;cookie-parser&apos;</span>);
-
-<span class="hljs-keyword">var</span> app = express();
-app.use(cookieParser());
+<p>Este es el principio del ejemplo, donde se incluyen los m&#xF3;dulos que vamos a usar como por ejemplo <code>express</code> y <code>express-session</code>. Luego a&#xF1;adimos el middleware <code>session</code> a la app.</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Authentication and Authorization Middleware</span>
+<span class="hljs-keyword">var</span> auth = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) </span>{
+  <span class="hljs-keyword">if</span> (req.session &amp;&amp; req.session.user === <span class="hljs-string">&quot;amy&quot;</span> &amp;&amp; req.session.admin)
+    <span class="hljs-keyword">return</span> next();
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">return</span> res.sendStatus(<span class="hljs-number">401</span>);
+};
 </code></pre>
-<h2 id="sintaxis">Sintaxis</h2>
-<p>Cookie-parser parsea la cabecera de la cookie y rellena <em>req.cookies</em> con un objeto indexado por el nombre de las cookies. Para establecer una nueva cookie, definamos una ruta en nuestra app Express de esta forma:</p>
-<pre><code class="lang-js">app.get(<span class="hljs-string">&apos;/cookie&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>)</span>{
-     res.cookie(cookie_name , <span class="hljs-string">&apos;cookie_value&apos;</span>).send(<span class="hljs-string">&apos;Cookie is set&apos;</span>);
+<p>Esta es la funci&#xF3;n que se encarga de verificar que estamos autenticados. Permite ejecutar el siguiente middleware si el usuario es &quot;amy&quot; y tiene permisos de administrador (los cuales veremos como se atribuyen ahora cuando veamos el middleware endpoint de login).</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Login endpoint</span>
+<span class="hljs-number">1</span>  app.get(<span class="hljs-string">&apos;/login&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+<span class="hljs-number">2</span>   <span class="hljs-keyword">if</span> (!req.query.username || !req.query.password) {
+<span class="hljs-number">3</span>     res.send(<span class="hljs-string">&apos;login failed&apos;</span>);    
+<span class="hljs-number">4</span>   } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(req.query.username === <span class="hljs-string">&quot;amy&quot;</span> || req.query.password === <span class="hljs-string">&quot;amyspassword&quot;</span>) {
+<span class="hljs-number">5</span>     req.session.user = <span class="hljs-string">&quot;amy&quot;</span>;
+<span class="hljs-number">6</span>     req.session.admin = <span class="hljs-literal">true</span>;
+<span class="hljs-number">7</span>     res.send(<span class="hljs-string">&quot;login success!&quot;</span>);
+<span class="hljs-number">8</span>   }
+<span class="hljs-number">9</span> });
+</code></pre>
+<p>El aspecto que tendr&#xE1; la URL cuando el usuario env&#xED;e el formulario que pide los datos de nombre de usuario y contrase&#xF1;a es el siguiente: <strong>localhost:3000/login?username=amy&amp;password=amyspassword</strong>, pero al utilizar el m&#xE9;todo POST de http, las credenciales no se muestran en la URL de la barra de direcciones. Este middleware, por tanto, comprueba que se ha introducido algo en los campos del formulario (l&#xED;nea 2), y si no es as&#xED; env&#xED;a un mensaje de error. Si el usuario ha introducido datos, y estos concuerdan con las credenciales de un usuario que tiene privilegios, se autentica y se le conceden dichos privilegios (l&#xED;neas 5 y 6) y a continuaci&#xF3;n se env&#xED;a un mensaje de &#xE9;xito (l&#xED;nea 7).</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Logout endpoint</span>
+app.get(<span class="hljs-string">&apos;/logout&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+  req.session.destroy();
+  res.send(<span class="hljs-string">&quot;logout success!&quot;</span>);
 });
 </code></pre>
-<p>Si queremos comprobar que la cookie se ha creado con &#xE9;xito, basta con ejecutar en la consola de nuestro navegador:</p>
-<blockquote>
-<p>document.cookie</p>
-</blockquote>
-<p>El navegador manda de vuelta la cookie al servidor cada vez que hace una solicitud nueva. Y para obtener la cookie que el navegador va a enviar adjunt&#xE1;ndola a la cabecera de la solicitud, podemos escribir:</p>
-<pre><code class="lang-js">app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Cookies :  &quot;</span>, req.cookies);
+<p>Este es el middleware endpoint de logout. Al acceder a esta ruta, la sesi&#xF3;n ser&#xE1; destruida y el usuario no estar&#xE1; <strong>autenticado</strong> y no podr&#xE1; acceder a los recursos hasta que se autentique de nuevo.</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Get content endpoint</span>
+app.get(<span class="hljs-string">&apos;/content&apos;</span>, auth, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">&quot;You can only see this after you&apos;ve logged in.&quot;</span>);
 });
 </code></pre>
-<h2 id="establecer-el-tiempo-de-expiraci&#xF3;n-de-una-cookie">Establecer el tiempo de expiraci&#xF3;n de una cookie</h2>
-<p>Se puede hacer f&#xE1;cilmente mediante:</p>
-<pre><code class="lang-js">res.cookie(name , <span class="hljs-string">&apos;value&apos;</span>, {expire : <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() + <span class="hljs-number">9999</span>});
+<p>Middleware que provee el contenido. La funci&#xF3;n <strong>auth</strong> se pasa como segundo par&#xE1;metro antes de que proceda a servir el contenido para el usuario, de tal forma que primero se compruebe su identidad, y si es correcta, se pasa a ejecutar el siguiente par&#xE1;metro (pues se habr&#xE1; llamado a la funci&#xF3;n <code>next()</code> de la funci&#xF3;n <code>auth</code> para llamar al siguiente middleware. De aqu&#xED; que el orden de escritura de los middleware y del paso de los par&#xE1;metros sea importante).</p>
+<pre><code class="lang-js">app.listen(<span class="hljs-number">3000</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;app running at http://localhost:3000&quot;</span>);
 </code></pre>
-<p>Como vimos en el cap&#xED;tulo del m&#xF3;dulo cookie, podemos pasarle opciones mediante un objeto, usando propiedades que tengan el nombre del atributo. En este caso, la porpiedad <em>expire</em> toma el valor del objeto <em>Date</em> creado, y se le suma 9999. Como alternativa, se puede usar la propiedad opcional <strong>magAge</strong>.</p>
-<pre><code class="lang-js">res.cookie(name, <span class="hljs-string">&apos;value&apos;</span>, {maxAge : <span class="hljs-number">9999</span>});
-</code></pre>
-<h2 id="borrar-una-cookie-existente">Borrar una cookie existente</h2>
-<p>Se puede hacer f&#xE1;cilmente utilizando el m&#xE9;todo <strong>clearCookie</strong> que requiere del nombre de la cookie que se desee eliminar.</p>
-<pre><code class="lang-js">app.get(<span class="hljs-string">&apos;/clearcookie&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req,res</span>)</span>{
-     clearCookie(<span class="hljs-string">&apos;cookie_name&apos;</span>);
-     res.send(<span class="hljs-string">&apos;Cookie deleted&apos;</span>);
-});
-</code></pre>
-<p>De esta forma, si accedemos a la ruta &quot;/clearcookie&quot;, se ejecutar&#xE1; el middleware que borra la cookie e imprime que la cookie se ha borrado. Si lo queremos comprobar m&#xE1;s exhaustivamente, en la consola de nuestro navegador, volvemos a ejecutar:</p>
-<blockquote>
-<p>document.cookie</p>
-</blockquote>
-<p>y veremos que la cookie ya no est&#xE1;.</p>
+<p>C&#xF3;digo que ejecuta el servidor para la aplicaci&#xF3;n, escuchando en <code>localhost</code> y en el puerto 3000.</p>
 
                                 
                                 </section>
@@ -508,7 +516,7 @@ app.use(cookieParser());
             
                 
                 
-                <a href="manejo-cookies-express.html#sintaxis" class="navigation navigation-next navigation-unique" aria-label="Next page: Sintaxis">
+                <a href="sesion-basica-express.html#comentando-el-ejemplo" class="navigation navigation-next navigation-unique" aria-label="Next page: Comentando el ejemplo auth-session.js">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -519,7 +527,7 @@ app.use(cookieParser());
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Definición","level":"1.5.1","depth":2,"next":{"title":"Sintaxis","level":"1.5.2","depth":2,"anchor":"#sintaxis","path":"npm-cookies/manejo-cookies-express.md","ref":"npm-cookies/manejo-cookies-express.md#sintaxis","articles":[]},"previous":{"title":"Módulo cookie-parser","level":"1.5","depth":1,"ref":"","articles":[{"title":"Definición","level":"1.5.1","depth":2,"path":"npm-cookies/manejo-cookies-express.md","ref":"npm-cookies/manejo-cookies-express.md","articles":[]},{"title":"Sintaxis","level":"1.5.2","depth":2,"anchor":"#sintaxis","path":"npm-cookies/manejo-cookies-express.md","ref":"npm-cookies/manejo-cookies-express.md#sintaxis","articles":[]},{"title":"Establecer tiempo de expiración","level":"1.5.3","depth":2,"anchor":"#establecer-el-tiempo-de-expiración-de-una-cookie","path":"npm-cookies/manejo-cookies-express.md","ref":"npm-cookies/manejo-cookies-express.md#establecer-el-tiempo-de-expiración-de-una-cookie","articles":[]},{"title":"Borrar una cookie","level":"1.5.4","depth":2,"anchor":"#borrar-una-cookie-existente","path":"npm-cookies/manejo-cookies-express.md","ref":"npm-cookies/manejo-cookies-express.md#borrar-una-cookie-existente","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"npm-cookies/manejo-cookies-express.md","mtime":"2017-03-15T19:56:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T20:37:55.687Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Definición","level":"1.6.1","depth":2,"next":{"title":"Comentando el ejemplo auth-session.js","level":"1.6.2","depth":2,"anchor":"#comentando-el-ejemplo","path":"npm-cookies/sesion-basica-express.md","ref":"npm-cookies/sesion-basica-express.md#comentando-el-ejemplo","articles":[]},"previous":{"title":"Autenticación básica en ExpressJS","level":"1.6","depth":1,"ref":"","articles":[{"title":"Definición","level":"1.6.1","depth":2,"path":"npm-cookies/sesion-basica-express.md","ref":"npm-cookies/sesion-basica-express.md","articles":[]},{"title":"Comentando el ejemplo auth-session.js","level":"1.6.2","depth":2,"anchor":"#comentando-el-ejemplo","path":"npm-cookies/sesion-basica-express.md","ref":"npm-cookies/sesion-basica-express.md#comentando-el-ejemplo","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"npm-cookies/sesion-basica-express.md","mtime":"2017-03-15T20:34:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T20:37:55.687Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
