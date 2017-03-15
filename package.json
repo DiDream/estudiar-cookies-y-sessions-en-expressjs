@@ -25,5 +25,8 @@
     "gitbook-cli": "^2.3.0",
     "gulp": "^3.9.1",
     "gulp-shell": "^0.6.3"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
   }
 }

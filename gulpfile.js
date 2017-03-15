@@ -6,6 +6,8 @@ var
 gulp.task('build', shell.task('node ./scripts/gitbook-build.js', {
     verbose: true
 }));
+gulp.task('serve', shell.task('node app.js'));
+
 gulp.task('deploy',['build'], shell.task([
     'node ./scripts/gh-pages-deploy.js',
     'node ./scripts/gitbook-deploy.js'],
