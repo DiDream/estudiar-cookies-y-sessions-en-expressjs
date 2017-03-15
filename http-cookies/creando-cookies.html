@@ -1,0 +1,353 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Creando cookies · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="seguridad.html" />
+    
+    
+    <link rel="prev" href="definicion.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introducción
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    HTTP cookies
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="definicion.html">
+            
+                <a href="definicion.html">
+            
+                    
+                    Definición
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="creando-cookies.html">
+            
+                <a href="creando-cookies.html">
+            
+                    
+                    Creando cookies
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="seguridad.html">
+            
+                <a href="seguridad.html">
+            
+                    
+                    Seguridad
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="seguimiento-privacidad.html">
+            
+                <a href="seguimiento-privacidad.html">
+            
+                    
+                    Seguimiento y privacidad
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Query string
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Creando cookies</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="creando-cookies">Creando cookies</h1>
+<p>Desde el servidor, las cookies son creadas mediante la cabecera de respuesta <code>HTTP Set-Cookie</code>:</p>
+<pre><code class="lang-http"><span class="hljs-attribute">Set-Cookie</span>: &lt;cookie-name&gt;=&lt;cookie-value&gt;
+</code></pre>
+<p>Una respuesta HTTP puede contener m&#xFA;ltiples cabeceras <code>Set-Cookie</code>, una por cada cookie.</p>
+<pre><code class="lang-http">HTTP/1.0 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-type</span>: text/html
+<span class="hljs-attribute">Set-Cookie</span>: colorPreference=blue
+<span class="hljs-attribute">Set-Cookie</span>: id=48745487
+</code></pre>
+<p>Una vez que la cookie ha sido creada, cada nueva solicitud que realice el usuario enviar&#xE1; la cookie en la cabecera de solicitud <code>HTTP Cookie</code>. En esta cabecera s&#xF3;lo se env&#xED;an las cookies que sean v&#xE1;lidas seg&#xFA;n los par&#xE1;metros establecidos al crearla (expires, path ...) y s&#xF3;lo se env&#xED;an el par <code>&lt;nombre&gt;=&lt;valor&gt;</code>:</p>
+<pre><code class="lang-http"><span class="hljs-attribute">Cookie</span>: &lt;nombre&gt;=&lt;valor&gt;
+</code></pre>
+<p>Cu&#xE1;ndo se env&#xED;an varias cookies, se env&#xED;an todas separadas por <strong>;</strong> en una &#xFA;nica cabecera <code>Cookie</code>.</p>
+<pre><code class="lang-http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/ejemplo.html</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: www.mysite.com
+<span class="hljs-attribute">Cookie</span>: colorPreference=blue; sessionToken=48745487
+</code></pre>
+<h4 id="cookies-de-sesi&#xF3;n">Cookies de sesi&#xF3;n</h4>
+<p>Los ejemplos anteriores son cookies de sesi&#xF3;n. No se especifica el campo <code>Expires</code> ni <code>Max-Age</code> y se borran cuando el usuario cierra el navegador Web.</p>
+<h4 id="cookies-persistentes">Cookies persistentes</h4>
+<p>Se borran en la fecha establecida en el campo <code>Expires</code> o pasado el tiempo indicado en el campo <code>Max-Age</code>.</p>
+<pre><code class="lang-http"><span class="hljs-attribute">Set-Cookie</span>: sessionToken=48745487; Expires=Thu, 01 Jan 2031 19:22:10 GMT
+</code></pre>
+<h4 id="alcance-de-las-cookies">Alcance de las cookies</h4>
+<p>El campo <code>Domain</code> y <code>Path</code> define el alcance de la cookie, que es el conjunto de direcciones URL a la cual se enviar&#xE1; la cookie.</p>
+<p><code>Domain</code> especifica los hosts a los que se enviar&#xE1; la cookie. Si no se especifica, por defecto, las cookies s&#xF3;lo ser&#xE1;n v&#xE1;lidas para el subdominio actual.
+Pero si el atributo domain no est&#xE1; vac&#xED;o, podemos especificar otros subdominios ya sea de forma espec&#xED;fica:</p>
+<pre><code class="lang-http">Domain=sub.ejemplo.com
+</code></pre>
+<p>o para todos los subdominios:</p>
+<pre><code class="lang-http">Domain=mozilla.org
+</code></pre>
+<p><code>Path</code> Establece la ruta para la cu&#xE1;l la cookie es v&#xE1;lida. Por defecto, si no se especifica ningun valor, una cookie solo es valida para el path actual. Por el contrario, si se especificase la cookie seria valida para todas las rutas a partir del path especificado.</p>
+<p>Por ejemplo si <code>Path=/docs</code>, ser&#xE1;n v&#xE1;lidos:</p>
+<ul>
+<li><code>/docs</code></li>
+<li><code>/docs/Web/</code></li>
+<li><code>/docs/Web/HTTP</code></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="definicion.html" class="navigation navigation-prev " aria-label="Previous page: Definición">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="seguridad.html" class="navigation navigation-next " aria-label="Next page: Seguridad">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Creando cookies","level":"1.2.2","depth":2,"next":{"title":"Seguridad","level":"1.2.3","depth":2,"path":"http-cookies/seguridad.md","ref":"http-cookies/seguridad.md","articles":[]},"previous":{"title":"Definición","level":"1.2.1","depth":2,"path":"http-cookies/definicion.md","ref":"http-cookies/definicion.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"http-cookies/creando-cookies.md","mtime":"2017-03-15T15:32:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T17:45:53.145Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
