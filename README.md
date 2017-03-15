@@ -10,3 +10,11 @@ Este proyecto es una práctica de la asignatura _Desarrollo de Sistemas Informá
 [Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicalearningcookies.html)
 
 [Campus virtual de la asignatura](https://campusvirtual.ull.es/1617/course/view.php?id=1136)
+
+[Libro en Github](https://didream.github.io/estudiar-cookies-y-sessions-en-expressjs/)
+
+[Libro en Gitbook](https://didream.gitbooks.io/estudiar-cookies-y-sessions-fernando-jimmy/content/)
+
+[Libro en IaaS](http://10.6.129.229:8080/)
+
+[Repositorio del libro](https://github.com/DiDream/estudiar-cookies-y-sessions-en-expressjs)
