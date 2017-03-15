@@ -3,7 +3,7 @@ La **autenticación** es el proceso de verificar que un usuario es en realidad q
 
 Veremos un ejemplo de autenticación básica en node.js (ejemplo que también estará en la carpeta `/src` de esta práctica.) Hay un middleware de enpoint de login, otro de logout, y otro que se ejecutará mediante el método POST de http, pero sólo si estamos autenticados, y nuestra identidad será verificada y guardada en sesión. Cuando lleguemos al middleware endpoint de `/logout`, entonces nuestra sesión será destruida y el servidor olvidará nuestra identidad, por lo que tendremos que volver a autenticarnos.
 
-[Enlace al archivo auth-session.js](../../src/auth-session.js)
+[Enlace al archivo auth-session.js](https://github.com/DiDream/estudiar-cookies-y-sessions-en-expressjs/blob/master/src/auth-session.js)
 
 ## Comentando el ejemplo
 ```js
